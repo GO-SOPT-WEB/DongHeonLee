@@ -1,1 +1,90 @@
 @import "./reset.css";
+
+body {
+  background-color: azure;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.header_title {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.weekly {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(7, 1fr);
+  height: 8rem;
+  background-color: skyblue;
+  margin: 0 3rem;
+}
+
+.weekly_date {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.weekly_icon {
+  position: relative;
+}
+
+.weekly_todonum {
+  color: white;
+  position: absolute;
+  top: 31%;
+  left: 34%;
+}
+
+.weekly_icon > i {
+  font-size: 1.7rem;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 25rem;
+  margin: 1rem 3rem;
+}
+
+.todo_list {
+  width: fit-content;
+  margin-bottom: 2rem;
+}
+.list_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.list_title > button {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+.list_content {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer_btn {
+  padding: 0.5rem 0.7rem;
+  margin: 1rem;
+  background-color: skyblue;
+  border: none;
+}
