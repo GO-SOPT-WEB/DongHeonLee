@@ -1,4 +1,4 @@
-@import "./reset.css";
+@import "../reset.css";
 
 .header {
   display: flex;
@@ -43,7 +43,7 @@ main {
   padding: 0.5rem;
 }
 
-.cards {
+#cards {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -62,7 +62,7 @@ main {
   margin: 1rem;
 }
 
-.cards_subs {
+.cards_sub {
   display: flex;
 }
 
@@ -75,6 +75,10 @@ main {
   height: 0.65rem;
   overflow: hidden;
   padding: 0.2rem;
+}
+
+.cards_tagbox > p::before {
+  content: "#";
 }
 
 .cards_tag_btn {
