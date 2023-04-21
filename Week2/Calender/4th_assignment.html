@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web_TO-DO_MATE</title>
     <link rel="stylesheet" href="4th_assginment.css" />
-    <script
-      src="https://kit.fontawesome.com/67f5caa03d.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <header>
@@ -49,7 +45,8 @@
           <h4 class="weekly_day">목</h4>
           <div class="weekly_icon">
             <i class="fa-solid fa-heart" style="color: aqua"></i>
-            <p class="weekly_todonum">6</p>
+            <p id="selected_todonum">5</p>
+            <!--선택된 날짜의 할일 수-->
           </div>
           <p class="weekly_datenum">30</p>
         </div>
@@ -81,69 +78,51 @@
           <p class="weekly_datenum">2</p>
         </div>
       </section>
-      <section class="todo">
-        <!--1번째 리스트-->
-        <article class="todo_list">
-          <div class="list_title" style="background-color: burlywood">
-            <h3 class="list_title_name">Wanna do</h3>
-            <button><i class="fa-solid fa-circle-plus"></i></button>
-          </div>
-          <p class="list_content">
-            <i class="fa-solid fa-heart" style="color: pink"></i> 테라스에서
-            커피마시기
-          </p>
-          <p class="list_content"><i class="fa-solid fa-heart"></i> 풋살하기</p>
-          <p class="list_content">
-            <i class="fa-solid fa-heart"></i> 브이로그찍기
-          </p>
-        </article>
-        <!--2번째 리스트-->
-        <article class="todo_list">
-          <div class="list_title" style="background-color: orange">
-            <h3 class="list_title_name">Have to do</h3>
-            <button><i class="fa-solid fa-circle-plus"></i></button>
-          </div>
-          <p class="list_content"><i class="fa-solid fa-heart"></i> 운동가기</p>
-          <p class="list_content"><i class="fa-solid fa-heart"></i> 시험공부</p>
-          <p class="list_content">
-            <i class="fa-solid fa-heart"></i> 졸업논문 가안잡기
-          </p>
-        </article>
-        <!--3번째 리스트-->
-        <article class="todo_list">
-          <div class="list_title" style="background-color: brown">
-            <h3 class="list_title_name">Urgent!</h3>
-            <button><i class="fa-solid fa-circle-plus"></i></button>
-          </div>
-          <p class="list_content">
-            <i class="fa-solid fa-heart"></i> 자료구조 강의수강
-          </p>
-          <p class="list_content">
-            <i class="fa-solid fa-heart" style="color: pink"></i> SOPT과제
-          </p>
-        </article>
-        <!--4번째 리스트-->
-        <article class="todo_list">
-          <div class="list_title" style="background-color: grey">
-            <h3 class="list_title_name">Not to do</h3>
-            <button><i class="fa-solid fa-circle-plus"></i></button>
-          </div>
-          <p class="list_content">
-            <i class="fa-solid fa-heart"></i> 유튜브보기
-          </p>
-          <p class="list_content"><i class="fa-solid fa-heart"></i> 늦잠자기</p>
-        </article>
-      </section>
+      <section id="todo"></section>
     </main>
     <footer>
-      <button class="footer_btn">
-        <i class="fa-solid fa-house"></i>
-        <p class="footer_txt">달력</p>
-      </button>
-      <button class="footer_btn">
-        <i class="fa-solid fa-user"></i>
-        <p class="footer_txt">MY</p>
-      </button>
+      <a href="/"
+        ><div class="footer_btn">
+          <i class="fa-solid fa-house"></i>
+          <p class="footer_txt">달력</p>
+        </div></a
+      >
+
+      <a href="/mycategory"
+        ><div class="footer_btn">
+          <i class="fa-solid fa-user"></i>
+          <p class="footer_txt">MY</p>
+        </div></a
+      >
     </footer>
+    <!--todo 섹션 템플릿-->
+    <template id="todo_category_template">
+      <article>
+        <div class="todo_category_title">
+          <h2>{category_name}</h2>
+          <i class="fa-solid fa-circle-plus add-btn"></i>
+        </div>
+        <ul class="todo_category_content">
+          {todos}
+        </ul>
+      </article>
+    </template>
+    <!--todo 리스트 요소 템플릿-->
+    <template id="todo_list_template">
+      <li>
+        <i class="done-btn fa-solid fa-heart" done="{done}">
+          <!-- <input type="button" id="{todo_content}" /> -->
+        </i>
+        <label for="{todo_content}" category="{category_name}"
+          >{todo_content}</label
+        >
+      </li>
+    </template>
+
+    <script
+      src="https://kit.fontawesome.com/67f5caa03d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="4th_assginment.js"></script>
   </body>
 </html>

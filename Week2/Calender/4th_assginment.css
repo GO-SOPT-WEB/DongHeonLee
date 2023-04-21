@@ -43,11 +43,23 @@ header {
   left: 34%;
 }
 
+#selected_todonum {
+  color: white;
+  position: absolute;
+  top: 31%;
+  left: 38%;
+}
+
 .weekly_icon > i {
   font-size: 1.7rem;
 }
 
-.todo {
+i[done="true"],
+.selected {
+  color: skyblue;
+}
+
+#todo {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -55,11 +67,7 @@ header {
   margin: 1rem 3rem;
 }
 
-.todo_list {
-  width: fit-content;
-  margin-bottom: 2rem;
-}
-.list_title {
+.todo_category_title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,14 +75,22 @@ header {
   padding: 0.2rem 0.5rem;
   margin-bottom: 0.5rem;
 }
-.list_title > button {
+.todo_category_title > i {
   border: none;
   background-color: transparent;
-  color: white;
+  color: skyblue;
 }
-.list_content {
+.todo_category_content {
   display: flex;
+  flex-direction: column;
   margin-bottom: 0.5rem;
+}
+
+.todo__categories__content > li {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.8rem;
+  align-items: center;
 }
 
 footer {
