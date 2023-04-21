@@ -14,18 +14,21 @@ let allDataList = []; //모든 로컬 데이터 저장소
 const checkBoxAll = document.getElementById("check_all");
 
 window.onload = () => {
+  //초기 설정 : 전체 체크로 시작.
   localStorage.getItem("card_data") === null &&
-    localStorage.setItem("card_data", JSON.stringify(DATA_LIST)); //로컬 초기화
-  allDataList = JSON.parse(localStorage.getItem("card_data")); //로컬에 저장된 목록을 가져옴
-  document.getElementById("check_all").checked = true; //전체 카테고리 디폴트로 체크
+    localStorage.setItem("card_data", JSON.stringify(DATA_LIST));
+  allDataList = JSON.parse(localStorage.getItem("card_data"));
+  document.getElementById("check_all").checked = true;
 
-  showDataList = allDataList; //모든 데이터 카드로 보여주는 리스트에 저장
+  showDataList = allDataList;
   makeCard(showDataList); //카드 보여주기 함수 작동
+  makeModal();
 };
 
 const checkBox = document.getElementsByClassName("nav_check");
 const checkBoxList = [...checkBox];
 
+//체크박스의 변화를 감지
 checkBoxList.forEach((item) => {
   item.addEventListener("change", () => {
     showDataList = manageCheckBox(
@@ -34,9 +37,11 @@ checkBoxList.forEach((item) => {
       showDataList
     );
     makeCard(showDataList); //반환된 list로 Card를 만들어 화면에 보여준다.
+    makeModal();
   });
 });
 
+//체크박스에 상태에 따라 리스트를 조정하여 반환
 function manageCheckBox(isChecked, tagName, list) {
   if (tagName === "전체") {
     isChecked
@@ -54,7 +59,6 @@ function manageCheckBox(isChecked, tagName, list) {
             (list.push(item), (list = Array.from(new Set(list))));
         })
       : checkBoxAll.checked || (list = removeTag(list, tagName));
-    // 해당 카테고리에 속하는 item들을 list에서 제거
   }
 
   return list;
@@ -79,15 +83,37 @@ function makeCard(list) {
       tags += `<p>` + tag + `</p>\n`; //태그 제작
     });
 
-    let content = cardTemplate.cloneNode(true); //템플릿 복사
-    let newHtml = content.innerHTML; //템플릿 안의 html 복사
-    newHtml = newHtml //복사한 html을 변경
+    let content = cardTemplate.cloneNode(true);
+    let newHtml = content.innerHTML;
+    newHtml = newHtml //html을 변경
       .replace("{card_name}", item.name)
       .replace("{card_tags}", tags)
+      .replace("{modal_tags}", tags)
       .replace("{card_alt}", item.name)
       .replace("{card_img}", item.img);
 
-    content.innerHTML = newHtml; //새롭게 바뀐 html을 다시 템플릿에 적용
-    cardsSection.appendChild(content.content); //부모노드에 넣기
+    content.innerHTML = newHtml; //html 변경 후 적용
+    cardsSection.appendChild(content.content);
+  });
+}
+
+//모달 함수
+function makeModal() {
+  const tagPlsBtn = document.getElementsByClassName("cards_tag_btn");
+  const tagPlsBtnList = [...tagPlsBtn];
+  tagPlsBtnList.forEach((item) => {
+    item.addEventListener("click", () => {
+      const modal = item.parentNode.parentNode.firstElementChild;
+      modal.style.display = "flex";
+    });
+  });
+
+  const tagClsBtn = document.getElementsByClassName("tag_cls_btn");
+  const tagClsBtnList = [...tagClsBtn];
+  tagClsBtnList.forEach((item) => {
+    item.addEventListener("click", () => {
+      const modal = item.parentNode.parentNode;
+      modal.style.display = "none";
+    });
   });
 }

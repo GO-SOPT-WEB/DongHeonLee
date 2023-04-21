@@ -87,6 +87,7 @@ main {
   border-radius: 180%;
   color: white;
 }
+
 .cards_img {
   margin: 0.5rem;
 }
@@ -97,4 +98,12 @@ main {
   color: skyblue;
   position: relative;
   left: 6rem;
+}
+
+.cards_modal {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  background-color: azure;
+  display: none;
 }
