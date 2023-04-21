@@ -135,7 +135,7 @@ function makeCheckedTag(checkBox) {
     content.innerHTML = newHtml;
     tagsSection.appendChild(content.content);
   } else {
-    const target = document.getElementById("tag__" + checkBox.id);
-    target.delete;
+    const target = document.getElementsByClassName("tag_" + checkBox.id);
+    target.remove;
   }
 }
