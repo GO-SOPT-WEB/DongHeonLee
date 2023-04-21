@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Heon's Camera</title>
     <link rel="stylesheet" href="3rd_assignment.css" />
-    
   </head>
   <body>
     <header class="header">
@@ -67,10 +66,12 @@
           </div>
         </div>
       </nav>
-      <section id="cards"></section>
+      <div class="main_content">
+        <section id="checked_tags"></section>
+        <section id="cards"></section>
+      </div>
     </main>
-    <!--템플릿-->
-    </template>
+    <!--카드 템플릿-->
     <template id="cards_template">
       <article class="cards_content">
         <div class="cards_modal">
@@ -91,7 +92,14 @@
         </button>
       </article>
     </template>
-  <script
+    <!--해시태그 템플릿-->
+    <template id="checked_tags_template">
+      <span class="checked_tag" id="{checked_tag_id}"
+        >{checked_tag_name}<label for="{checkbox_id}">
+          <i class="fa-solid fa-x"></i></label
+      ></span>
+    </template>
+    <script
       src="https://kit.fontawesome.com/67f5caa03d.js"
       crossorigin="anonymous"
     ></script>

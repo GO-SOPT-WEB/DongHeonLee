@@ -22,6 +22,7 @@ window.onload = () => {
 
   showDataList = allDataList;
   makeCard(showDataList); //카드 보여주기 함수 작동
+  makeCheckedTag(checkBoxAll);
   makeModal();
 };
 
@@ -36,7 +37,8 @@ checkBoxList.forEach((item) => {
       TAG_NAME[item.id],
       showDataList
     );
-    makeCard(showDataList); //반환된 list로 Card를 만들어 화면에 보여준다.
+    makeCard(showDataList); //반환된 list로 카드 보여주기
+    makeCheckedTag(item);
     makeModal();
   });
 });
@@ -116,4 +118,24 @@ function makeModal() {
       modal.style.display = "none";
     });
   });
+}
+
+//카테고리 태그 관리
+const tagsSection = document.getElementById("checked_tags");
+const tagsTemplate = document.getElementById("checked_tags_template");
+
+function makeCheckedTag(checkBox) {
+  if (checkBox.checked) {
+    let content = tagsTemplate.cloneNode(true);
+    let newHtml = content.innerHTML;
+    newHtml = newHtml
+      .replace("{checked_tag_name}", TAG_NAME[checkBox.id])
+      .replace("{checkbox_id}", checkBox.id)
+      .replace("{checkbox_tag_id}", "tag_" + checkBox.id);
+    content.innerHTML = newHtml;
+    tagsSection.appendChild(content.content);
+  } else {
+    const target = document.getElementById("tag__" + checkBox.id);
+    target.delete;
+  }
 }
