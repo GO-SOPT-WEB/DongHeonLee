@@ -36,7 +36,7 @@ const DATA_LIST = [
   },
   {
     name: "XF10",
-    tags: ["후지필름", "크롭센서", "똑딱이", "단렌즈"],
+    tags: ["후지필름", "크롭센서", "단렌즈"],
     img: "./static/xf10.jpeg",
   },
   {

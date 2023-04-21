@@ -1,7 +1,17 @@
 import DATA_LIST from "./data.js";
 
+const TAG_NAME = {
+  check_all: "전체",
+  check_full: "풀프레임",
+  check_crop: "크롭센서",
+  check_ddok: "똑딱이",
+  check_action: "액션캠",
+};
+
 let showDataList = []; //카드로 보여주는 데이터 모음
 let allDataList = []; //모든 로컬 데이터 저장소
+
+const checkBoxAll = document.getElementById("check_all");
 
 window.onload = () => {
   localStorage.getItem("card_data") === null &&
@@ -12,6 +22,49 @@ window.onload = () => {
   showDataList = allDataList; //모든 데이터 카드로 보여주는 리스트에 저장
   makeCard(showDataList); //카드 보여주기 함수 작동
 };
+
+const checkBox = document.getElementsByClassName("nav_check");
+const checkBoxList = [...checkBox];
+
+checkBoxList.forEach((item) => {
+  item.addEventListener("change", () => {
+    showDataList = manageCheckBox(
+      item.checked,
+      TAG_NAME[item.id],
+      showDataList
+    );
+    makeCard(showDataList); //반환된 list로 Card를 만들어 화면에 보여준다.
+  });
+});
+
+function manageCheckBox(isChecked, tagName, list) {
+  if (tagName === "전체") {
+    isChecked
+      ? allDataList.forEach((item) => {
+          list.push(item);
+          list = Array.from(new Set(list));
+        })
+      : checkBoxList.forEach((item) => {
+          item.checked || (list = removeTag(list, TAG_NAME[item.id]));
+        });
+  } else {
+    isChecked
+      ? allDataList.forEach((item) => {
+          item.tags.includes(tagName) &&
+            (list.push(item), (list = Array.from(new Set(list))));
+        })
+      : checkBoxAll.checked || (list = removeTag(list, tagName));
+    // 해당 카테고리에 속하는 item들을 list에서 제거
+  }
+
+  return list;
+}
+
+//list에서 tag에 tagname이 있는 아이템을 제거하는 함수
+function removeTag(list, tagName) {
+  list = list.filter((item) => item.tags.includes(tagName) === false);
+  return list;
+}
 
 //화면에 보여주기
 const cardsSection = document.getElementById("cards");
