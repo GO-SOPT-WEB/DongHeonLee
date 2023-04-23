@@ -10,6 +10,10 @@ export const TODO_DATA = [
         content: "풋살",
         done: false,
       },
+      {
+        content: "한강에서 딸기우유 마시면서 멍때리기",
+        done: false,
+      },
     ],
   },
   {
@@ -22,6 +26,10 @@ export const TODO_DATA = [
       {
         content: "사회조직론 실습과제4 수정",
         done: true,
+      },
+      {
+        content: "액트 슈팅플랜 작성",
+        done: false,
       },
     ],
   },
