@@ -150,6 +150,7 @@ a {
   align-items: center;
   background-color: gray;
   opacity: 90%;
+  display: none;
 }
 
 #modal_container {
