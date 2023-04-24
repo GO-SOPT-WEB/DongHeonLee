@@ -12,6 +12,23 @@
       <h1 class="header_title">WEB TO DO MATE</h1>
     </header>
     <main>
+      <!--할일추가 모달-->
+      <section id="todo_modal">
+        <div id="modal_container">
+          <i id="close_btn" class="fa-solid fa-x"></i>
+          <h2>투두리스트 추가</h2>
+          <form id="modal_form">
+            <input
+              required
+              type="text"
+              name="content"
+              id="modal_form_content"
+            />
+            <button type="submit">저장</button>
+          </form>
+        </div>
+      </section>
+      <!--날짜-->
       <section class="weekly">
         <!--월-->
         <div class="weekly_date">
@@ -78,6 +95,7 @@
           <p class="weekly_datenum">2</p>
         </div>
       </section>
+      <!--투두리스트-->
       <section id="todo"></section>
     </main>
     <footer>
@@ -117,6 +135,14 @@
           >{todo_content}</label
         >
       </li>
+    </template>
+
+    <!--할일 추가 모달 폼 템플릿-->
+    <template id="modal_form_template">
+      <form category="{category_name}" id="modal_form">
+        <input required type="text" name="content" id="modal_form_conent" />
+        <button type="submit">저장</button>
+      </form>
     </template>
 
     <script

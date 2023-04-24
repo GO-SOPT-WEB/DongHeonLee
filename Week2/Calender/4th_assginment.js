@@ -11,6 +11,7 @@ window.onload = () => {
   makeTodo(todoData);
   clickTodo();
   todoCount();
+  manageModal();
 };
 
 //list를 탐색하면서 요소를 하나씩 투두로 만드는 함수
@@ -68,7 +69,6 @@ function clickTodo() {
     item.addEventListener("click", () => {
       const clickedTodo = item.id;
       const clickedCategory = item.nextElementSibling.attributes.category.value;
-      console.log(clickedCategory);
       const doneValue = item.children[0].attributes.done.value;
       if (doneValue === "true") {
         localStorageData
@@ -86,5 +86,59 @@ function clickTodo() {
       localStorage.setItem("todo_data", JSON.stringify(localStorageData));
       todoCount();
     });
+  });
+}
+
+let modalStatement = null;
+//모달 열고 닫는 함수
+function manageModal() {
+  const modal = document.getElementById("todo_modal");
+  const addBtn = document.getElementsByClassName("add_btn");
+  const addBtnList = [...addBtn];
+
+  addBtnList.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      modal.style.display = "flex";
+      modalStatement = item.previousElementSibling.innerHTML;
+    });
+  });
+
+  modalStatement || processModal(modal);
+
+  const closeBtn = document.getElementById("close_btn");
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalStatement = null;
+  });
+}
+
+//모달 내 상호작용 관리 함수
+function processModal(modal) {
+  let submit = "";
+  const form = document.getElementById("modal_form");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submit = document.getElementById("modal_form_content").value;
+    let localStorageData = JSON.parse(localStorage.getItem("todo_data"));
+    let contentList = localStorageData.find(
+      (item) => item.category === modalStatement
+    ).list;
+
+    contentList.push({
+      content: submit,
+      done: false,
+    });
+
+    localStorage.setItem("todo_data", JSON.stringify(localStorageData));
+    todoNum++;
+    todoData = JSON.parse(localStorage.getItem("todo_data"));
+    makeTodo(todoData);
+    clickTodo();
+    manageModal();
+
+    modal.style.display = "none";
+    document.getElementById("modal_form_content").value = "";
+    modalStatement = null;
   });
 }
