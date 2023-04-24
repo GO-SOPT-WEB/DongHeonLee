@@ -100,7 +100,7 @@
       <article class="todo_category">
         <div class="todo_category_title">
           <h2>{category_name}</h2>
-          <i class="fa-solid fa-circle-plus add-btn"></i>
+          <i class="fa-solid fa-circle-plus add_btn"></i>
         </div>
         <ul class="todo_category_content">
           {todos}
@@ -110,8 +110,8 @@
     <!--todo 리스트 요소 템플릿-->
     <template id="todo_list_template">
       <li>
-        <button type="button" id="{todo_content}">
-          <i class="done-btn fa-solid fa-heart" done="{done}"></i>
+        <button type="button" id="{todo_content}" class="done_btn">
+          <i class="fa-solid fa-heart" done="{done}"></i>
         </button>
         <label for="{todo_content}" category="{category_name}"
           >{todo_content}</label
