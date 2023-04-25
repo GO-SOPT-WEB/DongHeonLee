@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heon's Camera</title>
+    <link rel="stylesheet" href="3rd_assignment.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header_title">Heon's Camera</h1>
+      <button class="header_btn" type="button">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+    <main>
+      <nav class="nav">
+        <h3 class="nav_title">종류</h3>
+        <div>
+          <div class="nav_content">
+            <label
+              ><input
+                class="nav_check"
+                type="checkbox"
+                id="check_all"
+              />전체</label
+            >
+          </div>
+          <div class="nav_content">
+            <label
+              ><input
+                class="nav_check"
+                type="checkbox"
+                id="check_full"
+              />풀프레임</label
+            >
+          </div>
+          <div class="nav_content">
+            <label
+              ><input
+                class="nav_check"
+                type="checkbox"
+                id="check_crop"
+              />크롭센서</label
+            >
+          </div>
+          <div class="nav_content">
+            <label
+              ><input
+                class="nav_check"
+                type="checkbox"
+                id="check_ddok"
+              />똑딱이</label
+            >
+          </div>
+
+          <div class="nav_content">
+            <label
+              ><input
+                class="nav_check"
+                type="checkbox"
+                id="check_action"
+              />액션캠</label
+            >
+          </div>
+        </div>
+      </nav>
+      <div class="main_content">
+        <section id="checked_tags"></section>
+        <section id="cards"></section>
+      </div>
+    </main>
+    <!--카드 템플릿-->
+    <template id="cards_template">
+      <article class="cards_content">
+        <div class="cards_modal">
+          <div class="cards_modal_tags">
+            <button class="tag_cls_btn" type="button">
+              <i class="fa-solid fa-x"></i></button
+            >{modal_tags}
+          </div>
+        </div>
+        <h3>{card_name}</h3>
+        <div class="cards_sub">
+          <div class="cards_tagbox">{card_tags}</div>
+          <button class="cards_tag_btn" type="button">+</button>
+        </div>
+        <img class="cards_img" src="{card_img}" alt="{card_alt}" />
+        <button class="cards_btn" type="button">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+      </article>
+    </template>
+    <!--해시태그 템플릿-->
+    <template id="checked_tags_template">
+      <span class="checked_tag" id="{checked_tag_id}"
+        >{checked_tag_name}<label for="{checkbox_id}">
+          <i class="fa-solid fa-x"></i></label
+      ></span>
+    </template>
+    <script
+      src="https://kit.fontawesome.com/67f5caa03d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer type="module" src="./3rd_assginment.js"></script>
+  </body>
+</html>

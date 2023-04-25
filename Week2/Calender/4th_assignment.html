@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web_TO-DO_MATE</title>
+    <link rel="stylesheet" href="4th_assginment.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="header_title">WEB TO DO MATE</h1>
+    </header>
+    <main>
+      <!--할일추가 모달-->
+      <section id="todo_modal">
+        <div id="modal_container">
+          <i id="close_btn" class="fa-solid fa-x"></i>
+          <h2>투두리스트 추가</h2>
+          <form id="modal_form">
+            <input
+              required
+              type="text"
+              name="content"
+              id="modal_form_content"
+            />
+            <button type="submit">저장</button>
+          </form>
+        </div>
+      </section>
+      <!--날짜-->
+      <section class="weekly">
+        <!--월-->
+        <div class="weekly_date">
+          <h4 class="weekly_day">월</h4>
+          <div class="weekly_icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="weekly_todonum">6</p>
+          </div>
+          <p class="weekly_datenum">27</p>
+        </div>
+        <!--화-->
+        <div class="weekly_date">
+          <h4 class="weekly_day">화</h4>
+          <div class="weekly_icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="weekly_todonum">6</p>
+          </div>
+          <p class="weekly_datenum">28</p>
+        </div>
+        <!--수-->
+        <div class="weekly_date">
+          <h4 class="weekly_day">수</h4>
+          <div class="weekly_icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="weekly_todonum">6</p>
+          </div>
+          <p class="weekly_datenum">29</p>
+        </div>
+        <!--목-->
+        <div class="weekly_date">
+          <h4 class="weekly_day">목</h4>
+          <div class="weekly_icon">
+            <i class="selected_day fa-solid fa-heart"></i>
+            <p id="selected_todonum">5</p>
+            <!--선택된 날짜의 할일 수-->
+          </div>
+          <p class="weekly_datenum">30</p>
+        </div>
+        <!--금-->
+        <div class="weekly_date">
+          <h4 class="weekly_day">금</h4>
+          <div class="weekly_icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="weekly_todonum">6</p>
+          </div>
+          <p class="weekly_datenum">31</p>
+        </div>
+        <!--토-->
+        <div class="weekly_date">
+          <h4 class="weekly_day">토</h4>
+          <div class="weekly_icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="weekly_todonum">9</p>
+          </div>
+          <p class="weekly_datenum">1</p>
+        </div>
+        <!--일-->
+        <div class="weekly_date">
+          <h4 class="weekly_day">일</h4>
+          <div class="weekly_icon">
+            <i class="fa-solid fa-heart"></i>
+            <p class="weekly_todonum">6</p>
+          </div>
+          <p class="weekly_datenum">2</p>
+        </div>
+      </section>
+      <!--투두리스트-->
+      <section id="todo"></section>
+    </main>
+    <footer>
+      <a href="./4th_assignment.html"
+        ><div class="footer_btn">
+          <i class="fa-solid fa-house"></i>
+          <p class="footer_txt">달력</p>
+        </div></a
+      >
+
+      <a href="./mycatergory/mycategory.html"
+        ><div class="footer_btn">
+          <i class="fa-solid fa-user"></i>
+          <p class="footer_txt">MY</p>
+        </div></a
+      >
+    </footer>
+    <!--todo 섹션 템플릿-->
+    <template id="todo_category_template">
+      <article class="todo_category">
+        <div class="todo_category_title">
+          <h2>{category_name}</h2>
+          <i class="fa-solid fa-circle-plus add_btn"></i>
+        </div>
+        <ul class="todo_category_content">
+          {todos}
+        </ul>
+      </article>
+    </template>
+    <!--todo 리스트 요소 템플릿-->
+    <template id="todo_list_template">
+      <li>
+        <button type="button" id="{todo_content}" class="done_btn">
+          <i class="fa-solid fa-heart" done="{done}"></i>
+        </button>
+        <label for="{todo_content}" category="{category_name}"
+          >{todo_content}</label
+        >
+      </li>
+    </template>
+
+    <!--할일 추가 모달 폼 템플릿-->
+    <template id="modal_form_template">
+      <form category="{category_name}" id="modal_form">
+        <input required type="text" name="content" id="modal_form_conent" />
+        <button type="submit">저장</button>
+      </form>
+    </template>
+
+    <script
+      src="https://kit.fontawesome.com/67f5caa03d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="4th_assginment.js"></script>
+  </body>
+</html>

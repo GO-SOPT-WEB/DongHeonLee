@@ -1,0 +1,109 @@
+@import "../reset.css";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-color: skyblue;
+  height: 3rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.header_title {
+  color: white;
+  font-size: 1rem;
+}
+
+.header_btn {
+  border: none;
+  background-color: skyblue;
+  padding-right: 2rem;
+}
+
+body {
+  background-color: ivory;
+}
+
+main {
+  display: flex;
+  padding: 3.5rem 1rem;
+}
+
+.nav {
+  background-color: skyblue;
+  color: white;
+  height: fit-content;
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+.nav_content {
+  padding: 0.5rem;
+}
+
+#cards {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cards_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.01rem solid skyblue;
+  background-color: white;
+  width: 20rem;
+  height: 20rem;
+  padding-bottom: 0.5rem;
+  margin: 1rem;
+}
+
+.cards_sub {
+  display: flex;
+}
+
+.cards_tagbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 10rem;
+  height: 0.65rem;
+  overflow: hidden;
+  padding: 0.2rem;
+}
+
+.cards_tagbox > p::before {
+  content: "#";
+}
+
+.cards_tag_btn {
+  border: none;
+  background-color: skyblue;
+  border-radius: 180%;
+  color: white;
+}
+
+.cards_img {
+  margin: 0.5rem;
+}
+
+.cards_btn {
+  border: none;
+  background-color: white;
+  color: skyblue;
+  position: relative;
+  left: 6rem;
+}
+
+.cards_modal {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  background-color: azure;
+  display: none;
+}
