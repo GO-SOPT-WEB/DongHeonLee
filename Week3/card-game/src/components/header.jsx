@@ -9,13 +9,13 @@ import styled from "styled-components";
 
 const Header = ({ nowScore, difficulty }) => {
   return (
-    <>
+    <header>
       <h1>숫자맞추기 게임</h1>
       <button>Reset</button>
       <p>
         {nowScore}/{difficulty}
       </p>
-    </>
+    </header>
   );
 };
 
