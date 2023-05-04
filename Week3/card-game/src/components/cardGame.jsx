@@ -1,38 +1,40 @@
+import styled from "styled-components";
 import Card from "./Card";
 
-const CardGame = () => {
+import { EasyList, NormalList, HardList } from "../utils/MakeDataList";
+
+let cardList = EasyList;
+
+const CardGame = ({ curLevel, nowScore, setNowScore }) => {
+  //레벨에 따라 리스트 변경
+  switch (curLevel) {
+    case "Easy":
+      cardList = EasyList;
+      break;
+    case "Normal":
+      cardList = NormalList;
+      break;
+    case "Hard":
+      cardList = HardList;
+      break;
+  }
+
   return (
     <section>
-      <div>
-        <Button
-          type="difficulty"
-          innerText="Easy"
-          onClick={(e) => console.log(e.target)}
-        />
-        <Button
-          type="difficulty"
-          innerText="Normal"
-          onClick={(e) => console.log(e.target)}
-        />
-        <Button
-          type="difficulty"
-          innerText="Hard"
-          onClick={(e) => console.log(e.target)}
-        />
-      </div>
-      <main>
-        <Card />
-      </main>
+      <CardsWrapper>
+        {cardList.map((card, idx) => {
+          return <Card idx={idx} card={card} />;
+        })}
+      </CardsWrapper>
     </section>
   );
 };
 
-const Button = ({ type, innerText, onClick }) => {
-  return (
-    <button type="button" onClick={onClick}>
-      {innerText}
-    </button>
-  );
-};
+const CardsWrapper = styled.main`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: lightgray;
+`;
 
 export default CardGame;

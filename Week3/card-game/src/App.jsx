@@ -1,13 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import CardGame from "./components/cardGame";
+import { MainPage } from "./pages/MainPage";
 
 function App() {
   return (
     <>
-      <Header nowScore={0} difficulty={5} />
-      <CardGame></CardGame>
+      <MainPage />
     </>
   );
 }

@@ -8,15 +8,44 @@ import SEVEN from "./seven.png";
 import EIGHT from "./eight.png";
 import NINE from "./nine.png";
 
-const Imgs = {
-  ONE,
-  TWO,
-  THREE,
-  FOUR,
-  FIVE,
-  SIX,
-  SEVEN,
-  EIGHT,
-  NINE,
-};
-export default Imgs;
+const IMG_DATA = [
+  {
+    id: 1,
+    imgSrc: ONE,
+  },
+  {
+    id: 2,
+    imgSrc: TWO,
+  },
+  {
+    id: 3,
+    imgSrc: THREE,
+  },
+  {
+    id: 4,
+    imgSrc: FOUR,
+  },
+
+  {
+    id: 5,
+    imgSrc: FIVE,
+  },
+  {
+    id: 6,
+    imgSrc: SIX,
+  },
+  {
+    id: 7,
+    imgSrc: SEVEN,
+  },
+
+  {
+    id: 8,
+    imgSrc: EIGHT,
+  },
+  {
+    id: 9,
+    imgSrc: NINE,
+  },
+];
+export default IMG_DATA;
