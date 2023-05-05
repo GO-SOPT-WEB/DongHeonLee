@@ -18,7 +18,7 @@ const Card = ({ idx, card, clickCard, isFlipped }) => {
 
   return (
     <CardWrap>
-      <Front id={idx} isFlipped={isFlipped} onClick={checkClickCard}>
+      <Front id={idx} onClick={checkClickCard}>
         <CardImg src={card.imgSrc} isFlipped={isFlipped} />
       </Front>
     </CardWrap>

@@ -19,38 +19,38 @@ const CardGame = ({ curLevel, nowScore, setNowScore }) => {
       break;
   }
 
-  const [clickedList, setClickedList] = useState([]);
-  const [correctedList, setCorrectedList] = useState([]);
+  const [clickedCardList, setClickedCardList] = useState([]);
+  const [clickedIdList, setClickedIdList] = useState([]);
 
-  // 카드 클릭 시 로직 처리를 위한 useEffect
+  // 카드 클릭 시 작동할 로직
   useEffect(() => {
-    if (correctedList.length === 2) {
-      if (correctedList[0] === correctedList[1]) {
-        correctedList[0].corrected = true;
+    if (clickedCardList.length === 2) {
+      if (clickedCardList[0] === clickedCardList[1]) {
+        clickedCardList[0].corrected = true;
         setNowScore((prev) => prev + 1);
       }
       setTimeout(() => {
-        setCorrectedList([]);
-        setClickedList([]);
+        setClickedCardList([]);
+        setClickedIdList([]);
       }, 700);
     }
-  }, [correctedList]);
+  }, [clickedCardList]);
 
-  //카드 선택 시 관련 state를 바꿔주기 위한 함수, card 컴포넌트의 click 이벤트로 처리할 수 있게 넘겨준다
-  const clickCard = (card, idx) => {
-    setCorrectedList([...correctedList, card]);
-    setClickedList([...clickedList, idx]);
-  };
-
-  // 레벨이 바뀌거나, 리셋되면 초기화하기 위한 useEffect
+  // 레벨 바뀌면 초기화.
   useEffect(() => {
-    setCorrectedList([]);
-    setClickedList([]);
+    setClickedCardList([]);
+    setClickedIdList([]);
     setNowScore(0);
     cardList.forEach((card) => {
       card.corrected = false;
     });
   }, [curLevel]);
+
+  //카드 클릭시 state 변경
+  const clickCard = (card, idx) => {
+    setClickedCardList([...clickedCardList, card]);
+    setClickedIdList([...clickedIdList, idx]);
+  };
 
   return (
     <CardsContainer>
@@ -60,8 +60,8 @@ const CardGame = ({ curLevel, nowScore, setNowScore }) => {
             <Card
               card={card}
               idx={idx}
-              clickCard={clickedList.length < 2 ? clickCard : null}
-              isFlipped={clickedList.includes(idx) || card.corrected}
+              clickCard={clickedIdList.length < 2 ? clickCard : null}
+              isFlipped={clickedIdList.includes(idx) || card.corrected}
             />
           </CardWrapper>
         );
