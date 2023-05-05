@@ -12,40 +12,49 @@ const IMG_DATA = [
   {
     id: 1,
     imgSrc: ONE,
+    corrected: false,
   },
   {
     id: 2,
     imgSrc: TWO,
+    corrected: false,
   },
   {
     id: 3,
     imgSrc: THREE,
+    corrected: false,
   },
   {
     id: 4,
     imgSrc: FOUR,
+    corrected: false,
   },
 
   {
     id: 5,
     imgSrc: FIVE,
+    corrected: false,
   },
   {
     id: 6,
     imgSrc: SIX,
+    corrected: false,
   },
   {
     id: 7,
     imgSrc: SEVEN,
+    corrected: false,
   },
 
   {
     id: 8,
     imgSrc: EIGHT,
+    corrected: false,
   },
   {
     id: 9,
     imgSrc: NINE,
+    corrected: false,
   },
 ];
 export default IMG_DATA;

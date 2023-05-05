@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 export const Header = ({ nowScore, curLevel }) => {
   let totalScore = 5;
   switch (curLevel) {
