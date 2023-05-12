@@ -5,10 +5,6 @@ const WeatherSection = () => {
   return (
     <CardContainer>
       <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
-      <WeatherCard />
     </CardContainer>
   );
 };

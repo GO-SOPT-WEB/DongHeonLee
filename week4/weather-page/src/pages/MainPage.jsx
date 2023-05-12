@@ -1,14 +1,16 @@
 import Header from "../components/Header";
 import Search from "../components/Search";
 import WeatherSection from "../components/WeatherSection";
-import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 export const MainPage = () => {
   return (
     <>
       <Header />
       <Search />
-      <WeatherSection />
+      <div>
+        <Outlet />
+      </div>
     </>
   );
 };
