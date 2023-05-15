@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Search from "../components/Search";
-import WeatherSection from "../components/WeatherSection";
 import { Outlet } from "react-router-dom";
 
 export const MainPage = () => {

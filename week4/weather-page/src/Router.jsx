@@ -7,7 +7,9 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />}>
-          <Route path=":area" element={<WeatherCard />} />
+          <Route path=":type">
+            <Route path=":area" element={<WeatherCard />} />
+          </Route>
         </Route>
         <Route path="/*" element={<div>404</div>} />
       </Routes>

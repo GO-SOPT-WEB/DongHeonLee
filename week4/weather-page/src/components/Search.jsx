@@ -1,37 +1,42 @@
 import { useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import myStore from "../store";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const navigate = useNavigate();
-  const { area, setArea } = myStore();
+  const [values, setValues] = useState({ type: "today", area: "" });
 
   const handleChange = (e) => {
-    setArea(e.target.value);
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
   };
-  const submit = () => {
-    navigate(`/${area}`);
+
+  const handleSubmit = () => {
+    navigate(`/${values.type}/${values.area}`);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    submit();
-  };
+
+  useEffect(() => {
+    if (values.area !== "") {
+      navigate(`/${values.type}/${values.area}`);
+    }
+  }, [values.type]);
+
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={handleSubmit}>
       <p>검색기능</p>
+      <select name="type" onChange={handleChange} value={values.type}>
+        <option value="today">오늘</option>
+        <option value="week">주간</option>
+      </select>
       <input
         name="area"
         placeholder="영어로 도시명을 입력해주세요."
-        value={area}
+        value={values.area}
         onChange={handleChange}
         type="text"
       />
-      <button type="submit" onClick={() => submit()}>
-        검색
-      </button>
+      <button type="submit">검색</button>
     </form>
   );
 };

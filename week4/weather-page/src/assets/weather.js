@@ -1,4 +1,4 @@
-export const WEATER_TYPE = [
+export const WEATHER_TYPE = [
   {
     description: "clear sky",
     imgURL:
@@ -31,12 +31,22 @@ export const WEATER_TYPE = [
       "https://i.pinimg.com/236x/12/7b/27/127b27107c1e54db5bc5fa5f1e2b4b47.jpg",
   },
   {
+    description: "light intensity shower rain",
+    imgURL:
+      "https://i.pinimg.com/236x/ab/3c/47/ab3c47b72e03dff11b40bd640a0f9d7c.jpg",
+  },
+  {
     description: "shower rain",
     imgURL:
       "https://i.pinimg.com/236x/ab/3c/47/ab3c47b72e03dff11b40bd640a0f9d7c.jpg",
   },
   {
     description: "rain",
+    imgURL:
+      "https://i.pinimg.com/236x/32/86/d9/3286d9a785a9db5e15f7422a96d757fc.jpg",
+  },
+  {
+    description: "light rain",
     imgURL:
       "https://i.pinimg.com/236x/32/86/d9/3286d9a785a9db5e15f7422a96d757fc.jpg",
   },
