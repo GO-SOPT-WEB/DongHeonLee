@@ -1,0 +1,36 @@
+//사용해야하는 변수
+//object.name
+//weather.main
+//main.feels_like
+//main.temp_min & main.temp_max
+//clouds.all
+{
+  "coord": { "lon": 126.9778, "lat": 37.5683 },
+  "weather": [
+    { "id": 800, "main": "Clear", "description": "clear sky", "icon": "01n" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 20.71,
+    "feels_like": 19.72,
+    "temp_min": 15.69,
+    "temp_max": 21.78,
+    "pressure": 1017,
+    "humidity": 34
+  },
+  "visibility": 10000,
+  "wind": { "speed": 3.6, "deg": 280 },
+  "clouds": { "all": 0 },
+  "dt": 1683802037,
+  "sys": {
+    "type": 1,
+    "id": 8105,
+    "country": "KR",
+    "sunrise": 1683750425,
+    "sunset": 1683800997
+  },
+  "timezone": 32400,
+  "id": 1835848,
+  "name": "Seoul",
+  "cod": 200
+}
