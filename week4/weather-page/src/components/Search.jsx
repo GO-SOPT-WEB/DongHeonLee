@@ -16,12 +16,6 @@ const Search = () => {
     navigate(`/${values.type}/${values.area}`);
   };
 
-  useEffect(() => {
-    if (values.area !== "") {
-      navigate(`/${values.type}/${values.area}`);
-    }
-  }, [values.type]);
-
   return (
     <form onSubmit={handleSubmit}>
       <p>검색기능</p>
