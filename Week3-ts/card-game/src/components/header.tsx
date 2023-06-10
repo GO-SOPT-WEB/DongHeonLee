@@ -1,12 +1,11 @@
 import React from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { mainGameAtom } from "../recoil/atoms";
+import { curLevelSelector, nowScoreSelector } from "../recoil/selector";
 
-interface HeaderProps {
-  nowScore: number;
-  curLevel: string;
-}
-
-export const Header = (props: HeaderProps) => {
-  const { curLevel, nowScore } = props;
+export const Header = () => {
+  const curLevel = useRecoilValue(curLevelSelector);
+  const nowScore = useRecoilValue(nowScoreSelector);
   let totalScore = 5;
   switch (curLevel) {
     case "Easy":

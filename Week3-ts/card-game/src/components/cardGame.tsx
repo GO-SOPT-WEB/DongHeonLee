@@ -4,17 +4,16 @@ import Card from "./card";
 import { EasyList, NormalList, HardList } from "../utils/makeDataList";
 import React from "react";
 import { DataType } from "../utils/dataType";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { mainGameAtom } from "../recoil/atoms";
+import { curLevelSelector, nowScoreSelector } from "../recoil/selector";
 
 let cardList = EasyList;
 
-interface CardGameProps {
-  nowScore: number;
-  curLevel: string;
-  setNowScore: React.Dispatch<React.SetStateAction<number>>;
-}
+const CardGame = () => {
+  const curLevel = useRecoilValue(curLevelSelector);
+  const [nowScore, setNowScore] = useRecoilState(nowScoreSelector);
 
-const CardGame = (props: CardGameProps) => {
-  const { curLevel, nowScore, setNowScore } = props;
   //레벨에 따라 리스트 변경
   switch (curLevel) {
     case "Easy":

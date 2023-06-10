@@ -1,4 +1,4 @@
-import { atom } from "../../node_modules/recoil/index";
+import { atom } from "recoil";
 
 export interface GameState {
   curLevel: string;

@@ -1,7 +1,7 @@
-import { selector } from "../../node_modules/recoil/index";
+import { selector } from "recoil";
 import { mainGameAtom } from "./atoms";
 
-export const currLevelSelector = selector<string>({
+export const curLevelSelector = selector<string>({
   key: "curLevelSelector",
   get: ({ get }) => get(mainGameAtom).curLevel,
   set: ({ set }, newValue) => {
@@ -12,7 +12,7 @@ export const currLevelSelector = selector<string>({
   },
 });
 
-export const currScoreSelector = selector<number>({
+export const nowScoreSelector = selector<number>({
   key: "nowScoreSelector",
   get: ({ get }) => get(mainGameAtom).nowScore,
   set: ({ set }, newValue) => {

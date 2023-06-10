@@ -1,13 +1,10 @@
 import styled from "styled-components";
 import React from "react";
+import { curLevelSelector } from "../recoil/selector";
+import { useRecoilState } from "recoil";
 
-interface LevelProps {
-  curLevel: string;
-  setCurLevel: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const Level = (props: LevelProps) => {
-  const { curLevel, setCurLevel } = props;
+export const Level = () => {
+  const [curLevel, setCurLevel] = useRecoilState(curLevelSelector);
   return (
     <BtnWrapper>
       <Button
