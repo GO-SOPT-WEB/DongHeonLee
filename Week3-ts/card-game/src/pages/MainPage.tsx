@@ -1,13 +1,17 @@
-import Header from "../components/Header";
-import CardGame from "../components/CardGame";
+import Header from "../components/header";
+import CardGame from "../components/cardGame";
 import Level from "../components/level";
 import { useState } from "react";
 import React from "react";
+import {
+  useRecoilState,
+  useRecoilValue,
+} from "../../node_modules/recoil/index";
+import { mainGameAtom } from "../recoil/atoms";
 
 export const MainPage = () => {
-  const [nowScore, setNowScore] = useState(0);
-  const [curLevel, setCurLevel] = useState("Easy");
-
+  const curLevel = useRecoilValue(mainGameAtom);
+  const nowScore = useRecoilValue(mainGameAtom);
   return (
     <>
       <Header nowScore={nowScore} curLevel={curLevel} />

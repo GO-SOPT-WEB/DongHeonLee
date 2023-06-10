@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import React from "react";
 
-export const Level = ({ curLevel, setCurLevel }) => {
+interface LevelProps {
+  curLevel: string;
+  setCurLevel: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const Level = (props: LevelProps) => {
+  const { curLevel, setCurLevel } = props;
   return (
     <BtnWrapper>
       <Button
@@ -28,7 +34,13 @@ export const Level = ({ curLevel, setCurLevel }) => {
 
 export default Level;
 
-const Button = ({ innerText, onClick }) => {
+interface ButtonProps {
+  innerText: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const Button = (props: ButtonProps) => {
+  const { innerText, onClick } = props;
   return (
     <button type="button" onClick={onClick}>
       {innerText}

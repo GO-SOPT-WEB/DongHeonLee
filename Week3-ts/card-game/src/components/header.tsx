@@ -1,6 +1,12 @@
 import React from "react";
 
-export const Header = ({ nowScore, curLevel }) => {
+interface HeaderProps {
+  nowScore: number;
+  curLevel: string;
+}
+
+export const Header = (props: HeaderProps) => {
+  const { curLevel, nowScore } = props;
   let totalScore = 5;
   switch (curLevel) {
     case "Easy":

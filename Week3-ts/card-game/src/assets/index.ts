@@ -7,8 +7,9 @@ import SIX from "./six.png";
 import SEVEN from "./seven.png";
 import EIGHT from "./eight.png";
 import NINE from "./nine.png";
+import { DataType } from "../utils/dataType";
 
-const IMG_DATA = [
+export const IMG_DATA: Array<DataType> = [
   {
     id: 1,
     imgSrc: ONE,

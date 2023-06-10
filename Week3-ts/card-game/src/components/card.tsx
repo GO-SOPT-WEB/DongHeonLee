@@ -2,9 +2,19 @@ import IMG_DATA from "../assets/index";
 import styled from "styled-components";
 import { useState } from "react";
 import React from "react";
+import { DataType } from "../utils/dataType";
 
-const Card = ({ idx, card, clickCard, isFlipped }) => {
-  const [isClicked, setIsClicked] = useState(false);
+interface CardProps {
+  idx: number;
+  card: DataType;
+  clickCard?: (card: DataType, idx: number) => void;
+  isFlipped: boolean;
+}
+
+const Card = (props: CardProps) => {
+  const { idx, card, clickCard, isFlipped } = props;
+
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
   const checkClickCard = () => {
     // 2개 이상 선택하지 않았고 중복 클릭이 아니면 함수 작동

@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Card from "./card";
-import { EasyList, NormalList, HardList } from "../utils/MakeDataList";
+import { EasyList, NormalList, HardList } from "../utils/makeDataList";
 import React from "react";
+import { DataType } from "../utils/dataType";
 
 let cardList = EasyList;
 
-const CardGame = ({ curLevel, nowScore, setNowScore }) => {
+interface CardGameProps {
+  nowScore: number;
+  curLevel: string;
+  setNowScore: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const CardGame = (props: CardGameProps) => {
+  const { curLevel, nowScore, setNowScore } = props;
   //레벨에 따라 리스트 변경
   switch (curLevel) {
     case "Easy":
@@ -20,8 +28,8 @@ const CardGame = ({ curLevel, nowScore, setNowScore }) => {
       break;
   }
 
-  const [clickedCardList, setClickedCardList] = useState([]);
-  const [clickedIdList, setClickedIdList] = useState([]);
+  const [clickedCardList, setClickedCardList] = useState<DataType[]>([]);
+  const [clickedIdList, setClickedIdList] = useState<number[]>([]);
 
   // 카드 클릭 시 작동할 로직
   useEffect(() => {
@@ -48,7 +56,7 @@ const CardGame = ({ curLevel, nowScore, setNowScore }) => {
   }, [curLevel]);
 
   //카드 클릭시 state 변경
-  const clickCard = (card, idx) => {
+  const clickCard = (card: DataType, idx: number) => {
     setClickedCardList([...clickedCardList, card]);
     setClickedIdList([...clickedIdList, idx]);
   };
@@ -79,8 +87,8 @@ const CardsContainer = styled.main`
 `;
 
 const CardWrapper = styled.article`
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 `;
 
 export default CardGame;

@@ -1,6 +1,7 @@
 import IMG_DATA from "../assets/index.js";
+import { DataType } from "./dataType.js";
 
-const shuffle = (array) => {
+const shuffle = (array: Array<DataType>) => {
   let shuffleArray = array.sort(() => Math.random() - 0.5);
   return shuffleArray;
 };

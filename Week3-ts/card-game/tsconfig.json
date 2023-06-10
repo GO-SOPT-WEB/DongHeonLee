@@ -5,6 +5,8 @@
     "module": "ESNext",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "typeRoots": ["./node_modules/@types", "@types"],
     "jsx": "react"
   },
